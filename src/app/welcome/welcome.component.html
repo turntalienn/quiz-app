@@ -11,10 +11,11 @@
     <h1 style="font-family: cursive; text-align: center;">All The Best!!</h1>
     <div class="name col-md-4 my-3">
         <label for="">Enter your name:</label>
-        <input type="text" class="form-control">
+        <!-- #name is the template ref variable which can now be accessed in the welcome.ts file -->
+        <input #name type="text" class="form-control">
     </div>
     <!-- routerLink takes the router path we want the user to be redirected to upon clicking the button -->
-    <button class="btn btn-primary btn-lg" routerLink="/question">Start the Quiz</button>
+    <button class="btn btn-primary btn-lg" routerLink="/question" (click)="startQuiz()">Start the Quiz</button>
 
 </div>
 
