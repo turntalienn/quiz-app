@@ -9,6 +9,10 @@ import { QuestionService } from '../service/question.service';
 export class QuestionComponent implements OnInit {
 
   public name: string="";
+  public questionList: any = [];
+  public currentQuestion: number = 0;
+  public points: number = 0;
+  counter = 60;
   //Question service is injected onto the constructor of this component
   constructor(private questionService: QuestionService) { }
 
@@ -22,8 +26,16 @@ export class QuestionComponent implements OnInit {
     //since the questionService returns an observable it has to be subscribed
     this.questionService.getQuestionJson()
     .subscribe(res=>{
-      console.log(res.questions)
+      this.questionList = res.questions;
     })
+  }
+
+  nextQuestion() {
+    this.currentQuestion++;
+  }
+
+  previousQuestion() {
+    this.currentQuestion--;
   }
 
 }
